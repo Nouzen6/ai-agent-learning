@@ -43,3 +43,24 @@
 
 ### Next Step
 - 把统计逻辑封装成函数
+
+## 2026-08-01
+
+### Today I Learned
+- 学会了用 sys.argv 接收命令行参数
+- 学会了用 args[2:] 接收多个关键词
+- 学会了用 for 循环统计多个关键词
+- 学会了把统计逻辑封装成函数
+
+### Code I Wrote
+- 新增 lesson_03_log_analyzer.py
+- 生成 log_analysis_result.json
+
+### Problems
+- 直接输入文件夹路径会被 PowerShell 当成命令执行
+
+### Solutions
+- 使用 cd 命令进入文件夹
+
+### Next Step
+- 给脚本增加更友好的错误提示git status
