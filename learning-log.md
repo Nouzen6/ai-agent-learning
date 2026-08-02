@@ -64,3 +64,29 @@
 
 ### Next Step
 - 给脚本增加更友好的错误提示git status
+
+## 2026-08-02
+
+### Today I Learned
+- 学会了用 try/except 处理文件读取错误
+- 学会了用 FileNotFoundError 处理文件不存在的情况
+- 学会了用 UnicodeDecodeError 处理文件编码错误
+- 学会了把读取文件、分析文本、保存 JSON 拆成不同函数
+- 学会了用返回值判断程序是否继续执行
+
+### Code I Wrote
+- 新增 lesson_04_error_handling.py
+- 生成 error_handling_result.json
+- 测试了正常输入和错误输入
+
+### Problems
+- 直接点击 VS Code 运行按钮时，没有传入命令行参数，只显示 Usage 提示
+
+### Solutions
+- 在终端手动运行带参数的命令
+- 正常运行示例：python 00-python-basic\practice\lesson_04_error_handling.py learning-log.md python agent json
+- 错误测试示例：python 00-python-basic\practice\lesson_04_error_handling.py not-exist.md python
+
+### Next Step
+- 学习虚拟环境和 pip
+
