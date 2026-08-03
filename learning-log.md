@@ -116,3 +116,30 @@
 
 ### Next Step
 - 学习 HTTP/API 请求
+
+## 2026-08-03
+
+### Today I Learned
+- 学会了用 requests.get 发送 HTTP GET 请求
+- 学会了查看 response.status_code
+- 学会了用 response.json() 解析 API 返回的 JSON
+- 学会了用 headers 告诉服务器希望接收什么格式的数据
+- 理解了 application/json 和 application/vnd.github+json 的区别
+- 理解了 User-Agent 是告诉服务器当前请求来自哪个程序
+- 理解了 403 可能是 API 限流，换代理后请求成功
+
+### Code I Wrote
+- 新增 lesson_06_http_api.py
+- 新增 lesson_06_httpbin_api.py
+- 生成 github_user_result.json
+
+### Problems
+- GitHub API 一开始返回 403
+- httpbin 返回 503
+
+### Solutions
+- 给请求添加 headers
+- 换代理节点后 GitHub API 请求成功
+
+### Next Step
+- 开始 lesson 07：第 0 阶段综合项目
