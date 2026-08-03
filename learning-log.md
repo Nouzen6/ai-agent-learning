@@ -90,3 +90,29 @@
 ### Next Step
 - 学习虚拟环境和 pip
 
+## 2026-08-03
+
+### Today I Learned
+- 学会了用 conda 创建独立 Python 环境
+- 学会了激活和退出 conda 环境
+- 学会了用 pip 安装第三方库
+- 学会了用 where.exe python 检查当前 Python 来自哪个环境
+- 学会了用 python -c 快速测试库是否安装成功
+
+### Commands I Ran
+- conda create -n ai-agent python=3.11 pip -y
+- conda activate ai-agent
+- python --version
+- where.exe python
+- pip install requests
+- python -c "import requests; print(requests.__version__)"
+- conda deactivate
+
+### Problems
+- 暂无
+
+### Solutions
+- 暂无
+
+### Next Step
+- 学习 HTTP/API 请求
