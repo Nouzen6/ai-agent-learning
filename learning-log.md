@@ -143,3 +143,31 @@
 
 ### Next Step
 - 开始 lesson 07：第 0 阶段综合项目
+
+## 2026-08-04
+
+### Today I Learned
+- 学会了用函数把程序拆成多个部分
+- 学会了统计学习记录数量
+- 学会了用字典和列表生成总结内容
+- 学会了把 Python 数据保存成 JSON
+- 学会了把总结内容保存成 Markdown 文件
+- 理解了 `.md` 文件和 `.txt` 文件本质上都是文本文件
+
+### Code I Wrote
+- 新增 `lesson_07_learning_log_analyzer.py`
+- 生成 `learning_summary.json`
+- 生成 `learning_summary.md`
+
+### Problems
+- 前面写代码时出现过变量名写错的问题，比如 `argv`、`text_path`
+- 运行时需要注意命令行参数是否传入完整
+
+### Solutions
+- 统一使用 `args = sys.argv`
+- 统一使用 `file_path` 作为读取文件的变量名
+- 通过终端手动传入文件路径和关键词参数
+- 先生成 JSON，再生成 Markdown，总结结果更清晰
+
+### Next Step
+- 开始 lesson 08：整理第 0 阶段项目和 README
