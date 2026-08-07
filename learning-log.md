@@ -171,3 +171,31 @@
 
 ### Next Step
 - 开始 lesson 08：整理第 0 阶段项目和 README
+
+
+**第四步：更新 learning-log.md**
+
+在最后追加：
+
+```markdown
+## 2026-08-07
+
+### Today I Learned
+- 整理了第 0 阶段学习成果
+- 更新了项目 README
+- 梳理了 Python 基础阶段完成的 lesson
+- 明确了学习日志分析器的运行方式和输出结果
+
+### Code I Wrote
+- 暂无新代码，主要进行项目整理
+
+### Problems
+- 需要把零散练习整理成 GitHub 上容易阅读的项目说明
+
+### Solutions
+- 更新根目录 README.md
+- 更新 00-python-basic/README.md
+- 写清楚项目结构、运行命令和阶段成果
+
+### Next Step
+- 进入第 1 阶段：AI 工具使用和 Prompt

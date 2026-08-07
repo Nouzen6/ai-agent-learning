@@ -26,3 +26,53 @@ Build a command-line script that:
 3. Saves the result as JSON.
 4. Commits the project with Git.
 
+## Completed Lessons
+
+- Lesson 01: Variables, data types, and print
+- Lesson 02: File reading, text statistics, and JSON output
+- Lesson 03: Command-line arguments and keyword statistics
+- Lesson 04: Error handling and function splitting
+- Lesson 05: Conda environment and pip
+- Lesson 06: HTTP/API requests
+- Lesson 07: Learning log analyzer project
+
+## Stage 0 Skills
+
+After this stage, I practiced:
+
+- Reading and writing text files
+- Working with JSON
+- Writing functions
+- Using command-line arguments
+- Handling errors with `try/except`
+- Creating conda environments
+- Installing packages with `pip`
+- Sending HTTP requests with `requests`
+- Using Git and GitHub for learning records
+
+## Final Project
+
+The final project of this stage is a learning log analyzer.
+
+Project file:
+
+```text
+00-python-basic/project/learning_log_analyzer.py
+```
+Run:
+```bash
+python 00-python-basic/project/learning_log_analyzer.py learning-log.md python agent json git api
+```
+Outputs:
+
+```text
+00-python-basic/project/learning_summary.json
+00-python-basic/project/learning_summary.md
+```
+The project can:
+Read learning-log.md
+Count characters and lines
+Count learning entries
+Count selected keywords
+Save a JSON summary
+Save a Markdown summary
