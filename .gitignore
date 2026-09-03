@@ -4,4 +4,4 @@ __pycache__/
 *.pyc
 data/private/
 *.log
-
+02-llm-api/lesson08-cli-learning-assistant/learning_analysis.json
