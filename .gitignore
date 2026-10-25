@@ -5,3 +5,4 @@ __pycache__/
 data/private/
 *.log
 02-llm-api/lesson08-cli-learning-assistant/learning_analysis.json
+03-rag/personal_rag_assistant/data/index.json
