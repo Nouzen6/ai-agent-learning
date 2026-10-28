@@ -2,12 +2,15 @@ from answer_question import answer_question
 from index_storage import load_index
 import requests
 
+
 def run_cli(
     index_path,
     embed_text,
     llm_call,
     input_func=input,
     output_func=print,
+    score_func=None,
+    candidate_k=10,
 ):
     """运行个人知识库命令行问答。"""
     try:
@@ -46,6 +49,8 @@ def run_cli(
                 llm_call=llm_call,
                 k=3,
                 score_threshold=0.6,
+                score_func=score_func,
+                candidate_k=candidate_k,
             )
 
         except requests.exceptions.Timeout:
@@ -57,13 +62,21 @@ def run_cli(
         except requests.exceptions.HTTPError:
             output_func("API 返回 HTTP 错误，请检查配置或服务状态。")
             continue
+        except ValueError as error:
+            output_func(f"处理失败：{error}")
+            continue
 
         output_func(f"AI：{result['answer']}")
 
         if result["sources"]:
-            output_func(
-                "来源：" + "、".join(result["sources"])
-            )
+            output_func("提供给模型的资料：")
+
+            for source_info in result["sources"]:
+                output_func(
+                    f"{source_info['citation']} "
+                    f"{source_info['source']}，"
+                    f"片段 {source_info['chunk_index']}"
+                )
 
 def main():
     from functools import partial
@@ -72,9 +85,23 @@ def main():
     from config import load_embedding_config, load_llm_config
     from embedding_client import embed_text
     from llm_client import call_llm
+    import argparse
+
+    from config import load_rerank_config
+    from rerank_client import score_text
 
     project_dir = Path(__file__).resolve().parent
 
+    parser = argparse.ArgumentParser(
+        description="个人知识库问答助手"
+    )
+    parser.add_argument(
+        "--rerank",
+        action="store_true",
+        help="启用第二阶段重排序",
+    )
+
+    args = parser.parse_args()
     embedding_config = load_embedding_config()
     llm_config = load_llm_config()
 
@@ -91,11 +118,27 @@ def main():
         model=llm_config["model"],
         api_key=llm_config["api_key"],
     )
+    score_func = None
 
+    if args.rerank:
+        try:
+            rerank_config = load_rerank_config()
+        except ValueError as error:
+            print(f"配置错误：{error}")
+            return
+
+        score_func = partial(
+            score_text,
+            api_url=rerank_config["api_url"],
+            model=rerank_config["model"],
+            api_key=rerank_config["api_key"],
+        )
     run_cli(
         index_path=project_dir / "data" / "index.json",
         embed_text=embed,
         llm_call=llm_call,
+        score_func=score_func,
+        candidate_k=10,
     )
 
 if __name__ == "__main__":

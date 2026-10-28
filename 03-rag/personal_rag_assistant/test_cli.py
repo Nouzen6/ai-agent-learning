@@ -51,7 +51,11 @@ class TestCli(unittest.TestCase):
             output_lines,
         )
         self.assertIn(
-            "来源：llm_api_notes.txt",
+            "提供给模型的资料：",
+            output_lines,
+        )
+        self.assertIn(
+            "[资料 1] llm_api_notes.txt，片段 0",
             output_lines,
         )
         mock_llm_call.assert_called_once()

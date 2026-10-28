@@ -41,12 +41,29 @@ class TestAnswerQuestion(unittest.TestCase):
         )
         self.assertEqual(
             result["sources"],
-            ["llm_api_notes.txt"],
+            [
+                {
+                    "citation": "[资料 1]",
+                    "source": "llm_api_notes.txt",
+                    "chunk_index": 0,
+                }
+            ],
         )
 
         mock_llm_call.assert_called_once()
         prompt = mock_llm_call.call_args.args[0]
-
+        self.assertIn(
+            "在对应句子后标注资料编号",
+            prompt,
+        )
+        self.assertIn(
+            "[资料 1]\n"
+            "来源：llm_api_notes.txt\n"
+            "片段编号：0\n"
+            "内容：\n"
+            "网络请求失败时，可以捕获 ConnectionError。",
+            prompt,
+        )
         self.assertIn("如何处理网络请求失败？", prompt)
         self.assertIn("ConnectionError", prompt)
         self.assertIn("llm_api_notes.txt", prompt)

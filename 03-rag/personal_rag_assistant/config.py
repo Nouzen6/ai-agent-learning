@@ -49,3 +49,26 @@ def load_embedding_config():
         config[parameter] = value
 
     return config
+
+def load_rerank_config():
+    """读取并检查 Rerank API 配置。"""
+    repo_root = Path(__file__).resolve().parents[2]
+    load_dotenv(repo_root / ".env")
+
+    env_names = {
+        "api_url": "RERANK_API_URL",
+        "model": "RERANK_MODEL",
+        "api_key": "RERANK_API_KEY",
+    }
+
+    config = {}
+
+    for parameter, env_name in env_names.items():
+        value = os.getenv(env_name, "").strip()
+
+        if not value:
+            raise ValueError(f"缺少环境变量：{env_name}")
+
+        config[parameter] = value
+
+    return config
